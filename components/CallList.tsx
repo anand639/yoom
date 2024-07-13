@@ -13,7 +13,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
 	const router = useRouter();
 	const [recordings, setRecordings] = useState<CallRecording[]>([]);
 	const { toast } = useToast();
-
+	// m
 	const getCalls = () => {
 		switch (type) {
 			case "ended":
@@ -66,9 +66,9 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
 	return (
 		<div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
 			{calls && calls.length > 0 ? (
-				calls.map((meeting: Call | CallRecording) => (
+				calls.map((meeting: Call | CallRecording, index) => (
 					<MeetingCard
-						key={(meeting as Call).id || (meeting as CallRecording).id}
+						key={(meeting as Call).id || (meeting as CallRecording).url || index}
 						icon={
 							type === "ended"
 								? "/icons/previous.svg"
