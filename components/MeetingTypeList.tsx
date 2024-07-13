@@ -133,7 +133,6 @@ const MeetingTypeList = () => {
 					onClose={() => setMeetingState(undefined)}
 					title="Meeting Created"
 					className="text-center"
-					buttonText="Start Meeting"
 					handleClick={() => {
 						navigator.clipboard.writeText(meetingLink);
 						toast({ title: "Link Copied" });
